@@ -9,7 +9,8 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:OntoClimateAdapt="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#">
     <owl:Ontology rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl">
-        <dc:date>28 January 2026</dc:date>
+        <owl:imports rdf:resource="https://raw.githubusercontent.com/HajoRijgersberg/OM/refs/heads/master/om-2.0.rdf"/>
+        <dc:date>17 June 2026</dc:date>
         <rdfs:comment>OntoClimateAdapt is an ontology designed to provide a formal semantic representation of data related to climate change adaptation research, initiatives, and actions. It enables the standardized description, integration, and interoperable exchange of information to support the development of resilient societies and adaptive capacities in the face of climate change.</rdfs:comment>
         <owl:versionInfo>1</owl:versionInfo>
         <gitCommitHash>c0599beca8df55873a1ab061dee64e52c510c6a0</gitCommitHash>
@@ -189,9 +190,22 @@
     <owl:ObjectProperty rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#hasLandSurfaceTemperature">
         <rdfs:domain rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#Location"/>
         <rdfs:range rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#LandSurfaceTemperature"/>
-        <rdfs:comment>An object property that relates a location to its land surface temperature at a specific time.</rdfs:comment>
+        <rdfs:comment>An object property that relates a location to its land surface temperature quantity observed or estimated at a specific time.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
         <rdfs:label>hasLandSurfaceTemperature</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#hasNearSurfaceAirTemperature -->
+
+
+    <owl:ObjectProperty rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#hasNearSurfaceAirTemperature">
+        <rdfs:domain rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#Location"/>
+        <rdfs:range rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#NearSurfaceAirTemperature"/>
+        <rdfs:comment>An object property that relates a location to a near-surface air temperature quantity observed or estimated at a specific time.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
+        <rdfs:label>hasNearSurfaceAirTemperature</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -257,6 +271,19 @@
         <rdfs:comment>An object property that relates a derived quantitative indicator to one or more events from which the indicator has been computed or aggregated.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
         <rdfs:label>isDerivedFromEvent</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#measuredAtHeight -->
+
+
+    <owl:ObjectProperty rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#measuredAtHeight">
+        <rdfs:domain rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#NearSurfaceAirTemperature"/>
+        <rdfs:range rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Height"/>
+        <rdfs:comment>Relates a measurement to the height at which it was made.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
+        <rdfs:label>measuredAtHeight</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -415,6 +442,13 @@
     
 
 
+    <!-- http://www.ontology-of-units-of-measure.org/resource/om-2/Height -->
+
+
+    <owl:Class rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/Height"/>
+    
+
+
     <!-- http://www.ontology-of-units-of-measure.org/resource/om-2/Measure -->
 
 
@@ -426,6 +460,13 @@
 
 
     <owl:Class rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/Quantity"/>
+    
+
+
+    <!-- http://www.ontology-of-units-of-measure.org/resource/om-2/Temperature -->
+
+
+    <owl:Class rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/Temperature"/>
     
 
 
@@ -621,7 +662,7 @@
 
 
     <owl:Class rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#LandSurfaceTemperature">
-        <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Quantity"/>
+        <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Temperature"/>
         <rdfs:comment>The radiative temperature of the Earth’s land surface at a specific location and time.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
         <rdfs:label>LandSurfaceTemperature</rdfs:label>
@@ -666,6 +707,18 @@
         <rdfs:comment>A temporal frequency representing the count of occurrences within a calendar month.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
         <rdfs:label>MonthlyFrequency</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#NearSurfaceAirTemperature -->
+
+
+    <owl:Class rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#NearSurfaceAirTemperature">
+        <rdfs:subClassOf rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Temperature"/>
+        <rdfs:comment>A temperature quantity representing the thermal state of air near the Earth&apos;s surface at a specific location and time.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
+        <rdfs:label>NearSurfaceAirTemperature</rdfs:label>
     </owl:Class>
     
 
