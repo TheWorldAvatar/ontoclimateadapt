@@ -10,7 +10,7 @@
      xmlns:OntoClimateAdapt="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#">
     <owl:Ontology rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl">
         <owl:imports rdf:resource="https://raw.githubusercontent.com/HajoRijgersberg/OM/refs/heads/master/om-2.0.rdf"/>
-        <dc:date>17 June 2026</dc:date>
+        <dc:date>21 June 2026</dc:date>
         <rdfs:comment>OntoClimateAdapt is an ontology designed to provide a formal semantic representation of data related to climate change adaptation research, initiatives, and actions. It enables the standardized description, integration, and interoperable exchange of information to support the development of resilient societies and adaptive capacities in the face of climate change.</rdfs:comment>
         <owl:versionInfo>1</owl:versionInfo>
         <gitCommitHash>c0599beca8df55873a1ab061dee64e52c510c6a0</gitCommitHash>
@@ -41,6 +41,25 @@
 
 
     <owl:AnnotationProperty rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#gitCommitHash"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#wktLiteral -->
+
+
+    <rdfs:Datatype rdf:about="http://www.opengis.net/ont/geosparql#wktLiteral"/>
     
 
 
@@ -80,6 +99,18 @@
     
 
 
+    <!-- http://www.opengis.net/ont/geosparql#hasGeometry -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#hasGeometry">
+        <rdfs:domain rdf:resource="http://sweetontology.net/propSpaceLocation/Location"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql"/>
+        <rdfs:label>hasGeometry</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.w3.org/2006/time#hasBeginning -->
 
 
@@ -108,7 +139,7 @@
 
 
     <owl:ObjectProperty rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#adaptedThrough">
-        <rdfs:domain rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#ClimateChange"/>
+        <rdfs:domain rdf:resource="http://sweetontology.net/phenPlanetClimate/ClimateChange"/>
         <rdfs:range rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#AdaptationMeasure"/>
         <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
         <rdfs:label>adaptedThrough</rdfs:label>
@@ -120,11 +151,11 @@
 
 
     <owl:ObjectProperty rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#affects">
-        <rdfs:domain rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#ClimateChange"/>
+        <rdfs:domain rdf:resource="http://sweetontology.net/phenPlanetClimate/ClimateChange"/>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#Ecology"/>
+                    <rdf:Description rdf:about="http://sweetontology.net/humanKnowledgeDomain/Ecology"/>
                     <rdf:Description rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#Economy"/>
                     <rdf:Description rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#HumanHealth"/>
                 </owl:unionOf>
@@ -154,7 +185,7 @@
 
 
     <owl:ObjectProperty rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#hasCause">
-        <rdfs:domain rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#ClimateChange"/>
+        <rdfs:domain rdf:resource="http://sweetontology.net/phenPlanetClimate/ClimateChange"/>
         <rdfs:range rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#GreenhouseGasEmission"/>
         <rdfs:comment>A causal relationship between an effect (or phenomenon) and the process, or event responsible for its occurrence.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
@@ -167,13 +198,13 @@
 
 
     <owl:ObjectProperty rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#hasEffect">
-        <rdfs:domain rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#ClimateChange"/>
+        <rdfs:domain rdf:resource="http://sweetontology.net/phenPlanetClimate/ClimateChange"/>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sweetontology.net/phenEnvirImpact/OceanAcidification"/>
+                    <rdf:Description rdf:about="http://sweetontology.net/phenEnvirImpact/SeaLevelRise"/>
                     <rdf:Description rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#MeteorologicalExtremeEvent"/>
-                    <rdf:Description rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#OceanAcidification"/>
-                    <rdf:Description rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SeaLevelRise"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
@@ -188,7 +219,7 @@
 
 
     <owl:ObjectProperty rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#hasLandSurfaceTemperature">
-        <rdfs:domain rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#Location"/>
+        <rdfs:domain rdf:resource="http://sweetontology.net/propSpaceLocation/Location"/>
         <rdfs:range rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#LandSurfaceTemperature"/>
         <rdfs:comment>An object property that relates a location to its land surface temperature quantity observed or estimated at a specific time.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
@@ -201,7 +232,7 @@
 
 
     <owl:ObjectProperty rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#hasNearSurfaceAirTemperature">
-        <rdfs:domain rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#Location"/>
+        <rdfs:domain rdf:resource="http://sweetontology.net/propSpaceLocation/Location"/>
         <rdfs:range rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#NearSurfaceAirTemperature"/>
         <rdfs:comment>An object property that relates a location to a near-surface air temperature quantity observed or estimated at a specific time.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
@@ -214,7 +245,7 @@
 
 
     <owl:ObjectProperty rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#hasNumberOfHeatwaveDays">
-        <rdfs:domain rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#Location"/>
+        <rdfs:domain rdf:resource="http://sweetontology.net/propSpaceLocation/Location"/>
         <rdfs:range rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#NumberOfHeatwaveDays"/>
         <rdfs:comment>An object property that relates a location to an observation representing the number of days during which heatwave conditions occur.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
@@ -227,7 +258,7 @@
 
 
     <owl:ObjectProperty rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#hasPopulationDensity">
-        <rdfs:domain rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#Location"/>
+        <rdfs:domain rdf:resource="http://sweetontology.net/propSpaceLocation/Location"/>
         <rdfs:range rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#PopulationDensity"/>
         <rdfs:comment>Relates a Location to its corresponding PopulationDensity measurement.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
@@ -305,11 +336,11 @@
 
 
     <owl:ObjectProperty rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#measuredBy">
-        <rdfs:domain rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#ClimateChange"/>
+        <rdfs:domain rdf:resource="http://sweetontology.net/phenPlanetClimate/ClimateChange"/>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#ClimateModel"/>
+                    <rdf:Description rdf:about="http://sweetontology.net/reprSciModel/ClimateModel"/>
                     <rdf:Description rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#MeteorologicalStation"/>
                     <rdf:Description rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SatelliteObservation"/>
                 </owl:unionOf>
@@ -327,7 +358,7 @@
 
     <owl:ObjectProperty rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#occursAt">
         <rdfs:domain rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#MeteorologicalExtremeEvent"/>
-        <rdfs:range rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#Location"/>
+        <rdfs:range rdf:resource="http://sweetontology.net/propSpaceLocation/Location"/>
         <rdfs:comment>A relation linking an event to the geographical location where it takes place or manifests its observable impacts.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
         <rdfs:label>occursAt</rdfs:label>
@@ -339,13 +370,13 @@
 
 
     <owl:ObjectProperty rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#studiedBy">
-        <rdfs:domain rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#ClimateChange"/>
+        <rdfs:domain rdf:resource="http://sweetontology.net/phenPlanetClimate/ClimateChange"/>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#AtmosphericScience"/>
+                    <rdf:Description rdf:about="http://sweetontology.net/humanKnowledgeDomain/AtmosphericScience"/>
+                    <rdf:Description rdf:about="http://sweetontology.net/humanKnowledgeDomain/Paleoclimatology"/>
                     <rdf:Description rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#EnvironmentalScience"/>
-                    <rdf:Description rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#Paleoclimatology"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
@@ -392,6 +423,18 @@
     
 
 
+    <!-- http://www.opengis.net/ont/geosparql#asWKT -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.opengis.net/ont/geosparql#asWKT">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#wktLiteral"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql"/>
+        <rdfs:label>asWKT</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://www.w3.org/2006/time#inXSDDateTime -->
 
 
@@ -430,6 +473,30 @@
     
 
 
+    <!-- https://www.ordnancesurvey.co.uk/linked-data/ontology/spatialrelations.owl#easting -->
+
+
+    <owl:DatatypeProperty rdf:about="https://www.ordnancesurvey.co.uk/linked-data/ontology/spatialrelations.owl#easting">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+        <rdfs:isDefinedBy rdf:resource="https://www.ordnancesurvey.co.uk/linked-data/ontology/spatialrelations.owl"/>
+        <rdfs:label>easting</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.ordnancesurvey.co.uk/linked-data/ontology/spatialrelations.owl#northing -->
+
+
+    <owl:DatatypeProperty rdf:about="https://www.ordnancesurvey.co.uk/linked-data/ontology/spatialrelations.owl#northing">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+        <rdfs:isDefinedBy rdf:resource="https://www.ordnancesurvey.co.uk/linked-data/ontology/spatialrelations.owl"/>
+        <rdfs:label>northing</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -439,6 +506,77 @@
      -->
 
 
+    
+
+
+    <!-- http://sweetontology.net/humanKnowledgeDomain/AtmosphericScience -->
+
+
+    <owl:Class rdf:about="http://sweetontology.net/humanKnowledgeDomain/AtmosphericScience"/>
+    
+
+
+    <!-- http://sweetontology.net/humanKnowledgeDomain/Ecology -->
+
+
+    <owl:Class rdf:about="http://sweetontology.net/humanKnowledgeDomain/Ecology"/>
+    
+
+
+    <!-- http://sweetontology.net/humanKnowledgeDomain/Paleoclimatology -->
+
+
+    <owl:Class rdf:about="http://sweetontology.net/humanKnowledgeDomain/Paleoclimatology"/>
+    
+
+
+    <!-- http://sweetontology.net/phenEnvirImpact/OceanAcidification -->
+
+
+    <owl:Class rdf:about="http://sweetontology.net/phenEnvirImpact/OceanAcidification"/>
+    
+
+
+    <!-- http://sweetontology.net/phenEnvirImpact/SeaLevelRise -->
+
+
+    <owl:Class rdf:about="http://sweetontology.net/phenEnvirImpact/SeaLevelRise"/>
+    
+
+
+    <!-- http://sweetontology.net/phenPlanetClimate/ClimateChange -->
+
+
+    <owl:Class rdf:about="http://sweetontology.net/phenPlanetClimate/ClimateChange">
+        <rdfs:subClassOf rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#EarthSystemPhenomenon"/>
+        <rdfs:subClassOf rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#EnvironmentalPhenomenon"/>
+        <rdfs:comment>An Environmental Phenomenon that represents a persistent alteration in the statistical properties of the climate system.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://sweetontology.net/propSpaceLocation/Location -->
+
+
+    <owl:Class rdf:about="http://sweetontology.net/propSpaceLocation/Location"/>
+    
+
+
+    <!-- http://sweetontology.net/propSpaceThickness/WaterContent -->
+
+
+    <owl:Class rdf:about="http://sweetontology.net/propSpaceThickness/WaterContent"/>
+    
+
+
+    <!-- http://sweetontology.net/reprSciModel/ClimateModel -->
+
+
+    <owl:Class rdf:about="http://sweetontology.net/reprSciModel/ClimateModel">
+        <rdfs:comment>A computational model that applies mathematical equations to simulate the behaviour of the Earth’s climate system.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
+        <rdfs:label>ClimateModel</rdfs:label>
+    </owl:Class>
     
 
 
@@ -474,6 +612,13 @@
 
 
     <owl:Class rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#Geometry -->
+
+
+    <owl:Class rdf:about="http://www.opengis.net/ont/geosparql#Geometry"/>
     
 
 
@@ -536,10 +681,39 @@
     
 
 
-    <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#AtmosphericScience -->
+    <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#AvailableRootingDepth -->
 
 
-    <owl:Class rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#AtmosphericScience"/>
+    <owl:Class rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#AvailableRootingDepth">
+        <rdfs:subClassOf rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SoilProperty"/>
+        <rdfs:comment>A SoilProperty representing the vertical depth of soil available for plant root growth and development at a specified location.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
+        <rdfs:label>AvailableRootingDepth</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#BulkDensity -->
+
+
+    <owl:Class rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#BulkDensity">
+        <rdfs:subClassOf rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SoilProperty"/>
+        <rdfs:comment>A SoilProperty representing the dry mass of soil per unit volume, including the volume occupied by pore spaces, at a specified location and, where applicable, at a specified time.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
+        <rdfs:label>BulkDensity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#ClayContent -->
+
+
+    <owl:Class rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#ClayContent">
+        <rdfs:subClassOf rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SoilTextureProperty"/>
+        <rdfs:comment>A SoilTextureProperty representing the proportion of clay-sized particles present within a soil layer.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
+        <rdfs:label>ClayContent</rdfs:label>
+    </owl:Class>
     
 
 
@@ -555,28 +729,6 @@
     
 
 
-    <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#ClimateChange -->
-
-
-    <owl:Class rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#ClimateChange">
-        <rdfs:subClassOf rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#EarthSystemPhenomenon"/>
-        <rdfs:subClassOf rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#EnvironmentalPhenomenon"/>
-        <rdfs:comment>An Environmental Phenomenon that represents a persistent alteration in the statistical properties of the climate system.</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#ClimateModel -->
-
-
-    <owl:Class rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#ClimateModel">
-        <rdfs:comment>A computational model that applies mathematical equations to simulate the behaviour of the Earth’s climate system.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
-        <rdfs:label>ClimateModel</rdfs:label>
-    </owl:Class>
-    
-
-
     <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#EarthSystemPhenomenon -->
 
 
@@ -585,13 +737,6 @@
         <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
         <rdfs:label>EarthSystemPhenomenon</rdfs:label>
     </owl:Class>
-    
-
-
-    <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#Ecology -->
-
-
-    <owl:Class rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#Ecology"/>
     
 
 
@@ -617,6 +762,18 @@
 
 
     <owl:Class rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#EnvironmentalScience"/>
+    
+
+
+    <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#GravelContent -->
+
+
+    <owl:Class rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#GravelContent">
+        <rdfs:subClassOf rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SoilTextureProperty"/>
+        <rdfs:comment>A SoilTextureProperty representing the proportion of gravel-sized fragments present within a soil layer.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
+        <rdfs:label>GravelContent</rdfs:label>
+    </owl:Class>
     
 
 
@@ -667,13 +824,6 @@
         <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
         <rdfs:label>LandSurfaceTemperature</rdfs:label>
     </owl:Class>
-    
-
-
-    <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#Location -->
-
-
-    <owl:Class rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#Location"/>
     
 
 
@@ -735,17 +885,15 @@
     
 
 
-    <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#OceanAcidification -->
+    <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#OrganicCarbonContent -->
 
 
-    <owl:Class rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#OceanAcidification"/>
-    
-
-
-    <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#Paleoclimatology -->
-
-
-    <owl:Class rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#Paleoclimatology"/>
+    <owl:Class rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#OrganicCarbonContent">
+        <rdfs:subClassOf rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SoilCompositionProperty"/>
+        <rdfs:comment>A SoilCompositionProperty representing the amount of organic carbon contained within a soil layer.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
+        <rdfs:label>OrganicCarbonContent</rdfs:label>
+    </owl:Class>
     
 
 
@@ -773,6 +921,18 @@
     
 
 
+    <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SandContent -->
+
+
+    <owl:Class rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SandContent">
+        <rdfs:subClassOf rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SoilTextureProperty"/>
+        <rdfs:comment>A SoilTextureProperty representing the proportion of sand-sized particles present within a soil layer.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
+        <rdfs:label>SandContent</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SatelliteObservation -->
 
 
@@ -784,10 +944,154 @@
     
 
 
-    <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SeaLevelRise -->
+    <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SiltContent -->
 
 
-    <owl:Class rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SeaLevelRise"/>
+    <owl:Class rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SiltContent">
+        <rdfs:subClassOf rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SoilTextureProperty"/>
+        <rdfs:comment>A SoilTextureProperty representing the proportion of silt-sized particles present within a soil layer.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
+        <rdfs:label>SiltContent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SoilCompositionProperty -->
+
+
+    <owl:Class rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SoilCompositionProperty"/>
+    
+
+
+    <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SoilProperty -->
+
+
+    <owl:Class rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SoilProperty">
+        <rdfs:comment>A property that represents a physical, hydrological, chemical, biological, or compositional characteristic of soil at a specified location and, where applicable, at a specified time.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
+        <rdfs:label>SoilProperty</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SoilTextureClass -->
+
+
+    <owl:Class rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SoilTextureClass">
+        <rdfs:subClassOf rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SoilTextureProperty"/>
+        <rdfs:comment>A SoilTextureProperty representing the texture classification assigned to a soil layer based on the relative proportions of clay, silt, and sand.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
+        <rdfs:label>SoilTextureClass</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SoilTextureProperty -->
+
+
+    <owl:Class rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SoilTextureProperty">
+        <rdfs:subClassOf rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SoilProperty"/>
+        <rdfs:comment>A SoilProperty that represents the texture of a soil layer, typically characterised by the relative proportions of particle-size fractions or by a derived soil texture classification.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
+        <rdfs:label>SoilTextureProperty</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SoilWaterContent -->
+
+
+    <owl:Class rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SoilWaterContent">
+        <rdfs:subClassOf rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SoilProperty"/>
+        <rdfs:comment>A SoilProperty representing the amount of water contained within a soil layer at a specified location and time.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
+        <rdfs:label>SoilWaterContent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SubsoilBulkDensity -->
+
+
+    <owl:Class rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SubsoilBulkDensity">
+        <rdfs:subClassOf rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#BulkDensity"/>
+        <rdfs:comment>A BulkDensity representing the dry mass of soil per unit volume within the subsoil layer.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
+        <rdfs:label>SubsoilBulkDensity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SubsoilClayContent -->
+
+
+    <owl:Class rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SubsoilClayContent">
+        <rdfs:subClassOf rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#ClayContent"/>
+        <rdfs:comment>A ClayContent representing the proportion of clay-sized particles present within the subsoil layer.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
+        <rdfs:label>SubsoilClayContent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SubsoilGravelContent -->
+
+
+    <owl:Class rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SubsoilGravelContent">
+        <rdfs:subClassOf rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#GravelContent"/>
+        <rdfs:comment>A GravelContent representing the proportion of gravel-sized fragments present within the subsoil layer.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
+        <rdfs:label>SubsoilGravelContent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SubsoilSandContent -->
+
+
+    <owl:Class rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SubsoilSandContent">
+        <rdfs:subClassOf rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SandContent"/>
+        <rdfs:comment>A SandContent representing the proportion of sand-sized particles present within the subsoil layer.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
+        <rdfs:label>SubsoilSandContent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SubsoilSiltContent -->
+
+
+    <owl:Class rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SubsoilSiltContent">
+        <rdfs:subClassOf rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SiltContent"/>
+        <rdfs:comment>A SiltContent representing the proportion of silt-sized particles present within the subsoil layer.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
+        <rdfs:label>SubsoilSiltContent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SubsoilTextureClass -->
+
+
+    <owl:Class rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SubsoilTextureClass">
+        <rdfs:subClassOf rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SoilTextureClass"/>
+        <rdfs:comment>A SoilTextureClass representing the texture classification assigned to the subsoil layer.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
+        <rdfs:label>SubsoilTextureClass</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SubsoilWaterContent -->
+
+
+    <owl:Class rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SubsoilWaterContent">
+        <rdfs:subClassOf rdf:resource="http://sweetontology.net/propSpaceThickness/WaterContent"/>
+        <rdfs:subClassOf rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SoilWaterContent"/>
+        <rdfs:comment>A hydrological quantity that represents the amount of water contained in the subsoil layer of a geographic area at a specified location and time.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
+        <rdfs:label>SubsoilWaterContent</rdfs:label>
+    </owl:Class>
     
 
 
@@ -798,6 +1102,91 @@
         <rdfs:comment>The regularity or recurrence pattern according to which an observation or aggregated value is defined, such as annually, monthly, or weekly.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
         <rdfs:label>TemporalFrequency</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#TopsoilBulkDensity -->
+
+
+    <owl:Class rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#TopsoilBulkDensity">
+        <rdfs:subClassOf rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#BulkDensity"/>
+        <rdfs:comment>A BulkDensity representing the dry mass of soil per unit volume within the topsoil layer.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
+        <rdfs:label>TopsoilBulkDensity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#TopsoilClayContent -->
+
+
+    <owl:Class rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#TopsoilClayContent">
+        <rdfs:subClassOf rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#ClayContent"/>
+        <rdfs:comment>A ClayContent representing the proportion of clay-sized particles present within the topsoil layer.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
+        <rdfs:label>TopsoilClayContent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#TopsoilGravelContent -->
+
+
+    <owl:Class rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#TopsoilGravelContent">
+        <rdfs:subClassOf rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#GravelContent"/>
+        <rdfs:comment>A GravelContent representing the proportion of gravel-sized fragments present within the topsoil layer.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
+        <rdfs:label>TopsoilGravelContent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#TopsoilSandContent -->
+
+
+    <owl:Class rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#TopsoilSandContent">
+        <rdfs:subClassOf rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SandContent"/>
+        <rdfs:comment>A SandContent representing the proportion of sand-sized particles present within the topsoil layer.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
+        <rdfs:label>TopsoilSandContent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#TopsoilSiltContent -->
+
+
+    <owl:Class rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#TopsoilSiltContent">
+        <rdfs:subClassOf rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SiltContent"/>
+        <rdfs:comment>A SiltContent representing the proportion of silt-sized particles present within the topsoil layer.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
+        <rdfs:label>TopsoilSiltContent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#TopsoilTextureClass -->
+
+
+    <owl:Class rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#TopsoilTextureClass">
+        <rdfs:subClassOf rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SoilTextureClass"/>
+        <rdfs:comment>A SoilTextureClass representing the texture classification assigned to the topsoil layer.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
+        <rdfs:label>TopsoilTextureClass</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#TopsoilWaterContent -->
+
+
+    <owl:Class rdf:about="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#TopsoilWaterContent">
+        <rdfs:subClassOf rdf:resource="http://sweetontology.net/propSpaceThickness/WaterContent"/>
+        <rdfs:subClassOf rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl#SoilWaterContent"/>
+        <rdfs:comment>A hydrological quantity that represents the amount of water contained within the topsoil layer of a geographic area at a specified location and time.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://github.com/TheWorldAvatar/ontoclimateadapt/OntoClimateAdapt.owl"/>
+        <rdfs:label>TopsoilWaterContent</rdfs:label>
     </owl:Class>
     
 
